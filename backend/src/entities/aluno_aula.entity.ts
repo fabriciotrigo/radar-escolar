@@ -6,16 +6,16 @@ export class AlunoAula {
     aula_id: number;
     presenca: boolean;
     participacao: Participacao;
-    nota_atividade: number | undefined;
-    observacao: string | undefined;
+    nota_atividade: number | null;
+    observacao: string | null;
 
     constructor(
         aluno_id: number,
         aula_id: number,
         presenca: boolean,
         participacao: Participacao,
-        nota_atividade?: number,
-        observacao?: string
+        nota_atividade: number | null,
+        observacao: string | null
     ) {
         this.aluno_id = aluno_id;
         this.aula_id = aula_id;
