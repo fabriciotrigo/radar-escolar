@@ -10,6 +10,7 @@ import { alunosRoutes } from "./http/controllers/alunos/routes";
 import { aulasRoutes } from "./http/controllers/aulas/routes";
 import { alunosTurmaRoutes } from "./http/controllers/aluno_turma/routes";
 import { professorTurmaRoutes } from "./http/controllers/professor_turma/routes";
+import { alunoAulaRoutes } from "./http/controllers/aluno_aula/routes";
 
 export const app = Fastify();
 
@@ -32,3 +33,4 @@ app.register(alunosRoutes);
 app.register(aulasRoutes);
 app.register(alunosTurmaRoutes);
 app.register(professorTurmaRoutes);
+app.register(alunoAulaRoutes);

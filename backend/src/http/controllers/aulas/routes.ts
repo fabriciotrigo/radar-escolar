@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify'
 import { create } from './create'
-import { updateChamada } from './update'
+import { loadAulas } from './loadAulas'
 
 export async function aulasRoutes(app: FastifyInstance) {
     app.post('/aulas', create)
-    app.put('/aulas/:id/chamada', updateChamada) // :id = aula_id
+    app.get('/professor-turma/:id/aulas', loadAulas) // :id = professor_turma_id
 }

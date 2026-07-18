@@ -55,10 +55,13 @@ export default function LoginPage() {
         className="bg-gray-100 p-8 rounded-lg shadow-md w-96"
       >
         <div className="flex flex-col items-center justify-center mb-6">
-          <Image src="/vercel.svg"
-            alt="Logo"
-            width={300}
-            height={300} 
+          <Image 
+            src="/logo_radar.png"
+            alt="Radar Escolar"
+            width={180}
+            height={180}
+            priority
+            className="w-40 h-auto"
           />
         </div>
 

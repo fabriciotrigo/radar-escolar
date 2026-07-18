@@ -3,7 +3,7 @@ import { z } from "zod"
 import { participacaoSchema } from "../../../types/participacao_aluno_aula"
 import { AlunoAula } from "../../../entities/aluno_aula.entity"
 import { AlunoAulaRepository } from "../../../repositories/aluno_aula.repository"
-import { UpdateChamadaUseCase } from "../../../use-cases/aulas/updateChamada-aulas"
+import { UpdateChamadaUseCase } from "../../../use-cases/aluno_aula/updateChamada-aulas"
 
 export async function updateChamada(
     request: FastifyRequest,
@@ -20,7 +20,7 @@ export async function updateChamada(
             presenca: z.boolean(),
             participacao: participacaoSchema,
             nota_atividade: z.number().nullable(),
-            observacao: z.string()
+            observacao: z.string().nullable().optional()
         })
     )
 
@@ -34,7 +34,7 @@ export async function updateChamada(
         presenca: aluno.presenca,
         participacao: aluno.participacao,
         nota_atividade: aluno.nota_atividade,
-        observacao: aluno.observacao
+        observacao: aluno.observacao ?? null
     }))
 
     const alunoAulaRepository = new AlunoAulaRepository()
@@ -43,6 +43,6 @@ export async function updateChamada(
 
     await updateChamadaUseCase.handler(alunosAula)
 
-    return reply.status(204).send()
+    return reply.status(200).send(alunosAula)
 
 }

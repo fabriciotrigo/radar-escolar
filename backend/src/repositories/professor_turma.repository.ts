@@ -65,4 +65,5 @@ export class ProfessorTurmaRepository {
 
         return result?.rows ?? []
     }
+    
 }
