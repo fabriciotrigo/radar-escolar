@@ -5,11 +5,8 @@ import { AlunoAula } from "../../../entities/aluno_aula.entity"
 import { AlunoAulaRepository } from "../../../repositories/aluno_aula.repository"
 import { UpdateChamadaUseCase } from "../../../use-cases/aluno_aula/updateChamada-aulas"
 
-export async function updateChamada(
-    request: FastifyRequest,
-    reply: FastifyReply
-) {
-
+export async function updateChamada(request: FastifyRequest, reply: FastifyReply) {
+    
     const paramsSchema = z.object({
         id: z.coerce.number()
     })
@@ -25,6 +22,14 @@ export async function updateChamada(
     )
 
     const { id: aula_id } = paramsSchema.parse(request.params)
+
+    /*try {
+        const body = bodySchema.parse(request.body)
+    } catch (err) {
+        console.error(err);
+
+        return reply.status(400).send(err);
+    }*/
 
     const body = bodySchema.parse(request.body)
 
@@ -43,6 +48,6 @@ export async function updateChamada(
 
     await updateChamadaUseCase.handler(alunosAula)
 
-    return reply.status(200).send(alunosAula)
+    return reply.status(200).send({ message: "Chamada atualizada com sucesso." })
 
 }

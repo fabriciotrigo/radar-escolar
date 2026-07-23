@@ -98,6 +98,10 @@ export class AlunoAulaRepository {
             [aulaId]
         )
 
-        return result?.rows ?? []
+        //return result?.rows ?? []
+        return result.rows.map(row => ({
+            ...row,
+            nota_atividade: row.nota_atividade === null ? null : Number(row.nota_atividade)
+        }));
     }
 }

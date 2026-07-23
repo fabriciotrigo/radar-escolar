@@ -75,7 +75,7 @@ export default function DashboardPage() {
                             transition
                         "
                     >
-                        <h2 className="text-2xl font-bold text-cyan-600">
+                        <h2 className="text-2xl font-bold text-blue-600">
                             {turma.ano}º {turma.sala}
                         </h2>
 

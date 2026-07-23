@@ -11,9 +11,9 @@ export class UpdateChamadaUseCase {
         alunosAula: AlunoAula[]
     ): Promise<void> {
         for (const alunoAula of alunosAula) {
-            await this.alunoAulaRepository.updateChamada(
-                alunoAula
-            )
+
+            await this.alunoAulaRepository.updateChamada(alunoAula)
+            
         }
     }
 }
