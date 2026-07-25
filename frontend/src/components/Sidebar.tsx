@@ -62,7 +62,6 @@ export default function Sidebar() {
         >
 
             {/* Logo */}
-
             <div className="p-4">
                 <div
                     className="

@@ -259,8 +259,8 @@ export default function ChamadaPage() {
                                             )
                                         }
                                         className="
-                                            h-5
-                                            w-5
+                                            h-4
+                                            w-4
                                             accent-blue-600
                                             cursor-pointer
                                         "
@@ -285,7 +285,7 @@ export default function ChamadaPage() {
                                             border
                                             border-slate-200
                                             px-3
-                                            py-2
+                                            py-0.5
                                             focus:border-blue-500
                                             focus:ring-2
                                             focus:ring-blue-100
@@ -326,7 +326,6 @@ export default function ChamadaPage() {
                                             border-slate-200
                                             text-center
                                             px-3
-                                            py-2
                                             focus:border-blue-500
                                             focus:ring-2
                                             focus:ring-blue-100
@@ -337,7 +336,6 @@ export default function ChamadaPage() {
                                 </td>
 
                                 <td className="px-4 py-3">
-
                                     <input
                                         type="text"
                                         value={aluno.observacao ?? ""}
@@ -354,24 +352,17 @@ export default function ChamadaPage() {
                                             border
                                             border-slate-200
                                             px-3
-                                            py-2
                                             focus:border-blue-500
                                             focus:ring-2
                                             focus:ring-blue-100
                                             outline-none
                                         "
                                     />
-
                                 </td>
-
                             </tr>
-
                         ))}
-
                     </tbody>
-
                 </table>
-
             </div>
 
             {/* Rodapé */}

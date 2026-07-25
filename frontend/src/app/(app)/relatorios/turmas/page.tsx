@@ -9,7 +9,8 @@ import {
     BookOpen,
     Calendar,
     TriangleAlert,
-    ChevronRight
+    ChevronRight,
+    Eye
 } from "lucide-react";
 
 interface RelatorioTurma {
@@ -32,7 +33,7 @@ interface RelatorioTurma {
 export default function RelatoriosPage() {
 
     const router = useRouter();
-    const { getToken } = useAuth()
+    const { getToken } = useAuth();
 
     const [turmas, setTurmas] = useState<RelatorioTurma[]>([]);
     const [loading, setLoading] = useState(true);
@@ -173,12 +174,11 @@ export default function RelatoriosPage() {
 
                         <button
                             onClick={() =>
-                                router.push(
-                                    `/relatorios/${turma.professor_turma_id}`
-                                )
+                                router.push(`/relatorios/turmas/${turma.professor_turma_id}`)
                             }
                             className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 flex items-center justify-center gap-2 font-medium transition"
                         >
+                            <Eye size={16} />
                             Ver relatório
                             <ChevronRight size={18} />
                         </button>

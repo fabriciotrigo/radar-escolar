@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import z, { email } from "zod";
+import z from "zod";
 import { UsuariosRepository } from "../../../repositories/usuarios.repository"
 import { FindByEmailUseCase } from "../../../use-cases/usuarios/findByEmail-usuarios";
 
