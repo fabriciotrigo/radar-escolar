@@ -37,6 +37,7 @@ export class AulasRepository {
                 a.id AS aula_id,
                 a.data,
                 a.assunto,
+                a.professor_turma_id,
                 ROUND(
                     AVG(
                         CASE
@@ -84,7 +85,8 @@ export class AulasRepository {
             GROUP BY
                 a.id,
                 a.data,
-                a.assunto
+                a.assunto,
+                a.professor_turma_id
             ORDER BY
                 a.data DESC
             LIMIT $2

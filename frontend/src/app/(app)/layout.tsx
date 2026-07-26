@@ -39,18 +39,6 @@ export default function AppLayout({
     }
 
     return (
-        /*<div className="flex min-h-screen bg-gray-100">
-
-            <Sidebar />
-
-            <div className="flex flex-col flex-1">
-
-                <main className="flex-1 p-8">
-                    {children}
-                </main>
-
-            </div>
-        </div>*/
         <div className="flex min-h-screen bg-slate-100">
             <Sidebar />
 

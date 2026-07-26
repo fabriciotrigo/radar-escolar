@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import Image from "next/image"
 
 import {
     LayoutDashboard,
@@ -48,19 +49,20 @@ export default function Sidebar() {
     }
 
     return (
-
-        <aside
-            className="
-                m-4
-                w-72
-                rounded-2xl
-                bg-white
-                shadow-lg
-                flex
-                flex-col
-            "
+        <aside className="
+                    sticky
+                    top-4
+                    h-[calc(100vh-2rem)]
+                    overflow-y-auto
+                    m-4
+                    w-72
+                    rounded-2xl
+                    bg-white
+                    shadow-lg
+                    flex
+                    flex-col
+                    "
         >
-
             {/* Logo */}
             <div className="p-4">
                 <div
@@ -72,9 +74,15 @@ export default function Sidebar() {
                         shadow-sm
                     "
                 >
-                    <h2 className="text-2xl font-bold text-white">
-                        Radar Escolar
-                    </h2>
+                    <div className="flex flex-col items-center justify-center mb-6">
+                        <Image src="/logo_menu.png"
+                            alt="Radar Escolar"
+                            width={180}
+                            height={180}
+                            priority
+                            className="w-40 h-auto" 
+                        />
+                    </div>
 
                     <p className="mt-1 text-sm text-blue-100">
                         Olá, {user?.nome}

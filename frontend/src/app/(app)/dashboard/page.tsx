@@ -12,6 +12,8 @@ type Dashboard = {
     sala: string
     disciplina: string
     quantidade_alunos: number
+    aulas_realizadas: number
+    aulas_agendadas: number
 }
 
 export default function DashboardPage() {
@@ -86,6 +88,13 @@ export default function DashboardPage() {
                         <p className="text-gray-500 mt-2">
                             {turma.quantidade_alunos} alunos
                         </p>
+                        <p className="text-gray-500 mt-2">
+                            {turma.aulas_realizadas} aulas realizadas
+                        </p>
+                        <p className="text-gray-500 mt-2">
+                            {turma.aulas_agendadas} aulas agendadas
+                        </p>
+
                     </div>
                 ))}
             </div>

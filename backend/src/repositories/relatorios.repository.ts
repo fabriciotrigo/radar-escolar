@@ -322,7 +322,7 @@ export class RelatoriosRepository {
                 al.id,
                 al.nome
 
-            ORDER BY al.nome;
+            ORDER BY alerta DESC, al.nome ASC;
             `,
             [professorTurmaId]
         )

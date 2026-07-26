@@ -10,6 +10,8 @@ import {
     Tooltip,
 } from "recharts";
 
+import { BarChart3 } from "lucide-react";
+
 interface ParticipacaoTurma {
     participacao: string;
     quantidade: number;
@@ -37,9 +39,15 @@ export default function GraficoParticipacao({
 
     return (
         <div className="rounded-xl border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-6 text-lg font-semibold">
-                Participação dos Alunos
-            </h2>
+            <div className="mb-6 flex items-center gap-2">
+                <BarChart3
+                    size={20}
+                    className="text-blue-600"
+                />
+                <h2 className="text-lg font-semibold">
+                    Participação da Turma por Aula
+                </h2>
+            </div>
 
             <ResponsiveContainer width="100%" height={320}>
                 <BarChart

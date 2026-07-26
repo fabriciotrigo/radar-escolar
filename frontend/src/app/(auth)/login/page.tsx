@@ -56,12 +56,12 @@ export default function LoginPage() {
       >
         <div className="flex flex-col items-center justify-center mb-6">
           <Image 
-            src="/logo_radar.png"
+            src="/logo.png"
             alt="Radar Escolar"
             width={180}
             height={180}
             priority
-            className="w-40 h-auto"
+            className="w-auto h-auto"
           />
         </div>
 

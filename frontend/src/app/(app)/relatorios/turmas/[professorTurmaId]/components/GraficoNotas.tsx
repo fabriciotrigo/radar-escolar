@@ -7,8 +7,10 @@ import {
     CartesianGrid,
     XAxis,
     YAxis,
-    Tooltip,
+    Tooltip
 } from "recharts";
+
+import { TrendingUp } from "lucide-react"
 
 interface NotasTurma {
     aula_id: number;
@@ -60,9 +62,15 @@ export default function GraficoNotas({
 }: GraficoNotasProps) {
     return (
         <div className="rounded-xl border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-6 text-lg font-semibold">
-                Evolução da Nota Média
-            </h2>
+            <div className="mb-6 flex items-center gap-2">
+                <TrendingUp
+                    size={20}
+                    className="text-blue-600"
+                />
+                <h2 className="text-lg font-semibold">
+                    Evolução da Nota Média da Turma por Aula
+                </h2>
+            </div>
 
             <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">

@@ -35,8 +35,16 @@ export default function CardsResumoAluno({
             <Card
                 titulo="Frequência"
                 valor={`${resumo.frequencia}%`}
+                corBorda={getCorBordaFrequencia(resumo.frequencia)}
             />
-
+            <Card
+                titulo="Presenças"
+                valor={`${resumo.presencas}/${resumo.totalAulas}`}
+            />
+            <Card
+                titulo="Faltas"
+                valor={resumo.faltas.toString()}
+            />
             <Card
                 titulo="Nota Média"
                 valor={
@@ -44,19 +52,10 @@ export default function CardsResumoAluno({
                         ? resumo.notaMedia.toFixed(1)
                         : "-"
                 }
+                corBorda={getCorBordaNota(resumo.notaMedia)}
             />
 
-            <Card
-                titulo="Presenças"
-                valor={`${resumo.presencas}/${resumo.totalAulas}`}
-            />
-
-            <Card
-                titulo="Faltas"
-                valor={resumo.faltas.toString()}
-            />
-
-            <div className="rounded-xl border-slate-200 bg-white p-5 shadow-sm">
+            <div className={`rounded-xl border-l-4 ${getCorBordaParticipacao(resumo.participacaoMedia)} bg-white p-5 shadow-sm`}>
                 <p className="text-sm text-gray-500">
                     Participação
                 </p>
@@ -77,11 +76,12 @@ export default function CardsResumoAluno({
 interface CardProps {
     titulo: string;
     valor: string;
+    corBorda?: string;
 }
 
-function Card({ titulo, valor }: CardProps) {
+function Card({ titulo, valor, corBorda = "border-slate-200" }: CardProps) {
     return (
-        <div className="rounded-xl border-slate-200 bg-white p-5 shadow-sm">
+        <div className={`rounded-xl border-l-4 ${corBorda} bg-white p-5 shadow-sm`}>
             <p className="text-sm text-gray-500">
                 {titulo}
             </p>
@@ -91,4 +91,50 @@ function Card({ titulo, valor }: CardProps) {
             </p>
         </div>
     );
+}
+
+function getCorBordaFrequencia(frequencia: number) {
+    if (frequencia >= 90) {
+        return "border-green-500";
+    }
+
+    if (frequencia >= 75) {
+        return "border-yellow-400";
+    }
+
+    return "border-red-500";
+}
+
+function getCorBordaNota(nota: number | null) {
+    if (nota === null) {
+        return "border-slate-200";
+    }
+
+    if (nota >= 8) {
+        return "border-green-500";
+    }
+
+    if (nota >= 6) {
+        return "border-yellow-400";
+    }
+
+    return "border-red-500";
+}
+
+type Participacao = ResumoAluno["participacaoMedia"];
+
+function getCorBordaParticipacao(participacao: Participacao) {
+    if (participacao === "ALTA") {
+        return "border-green-500";
+    }
+
+    if (participacao === "MEDIA") {
+        return "border-yellow-400";
+    }
+
+    if (participacao === "BAIXA") {
+        return "border-red-500";
+    }
+
+    return "border-slate-200";
 }

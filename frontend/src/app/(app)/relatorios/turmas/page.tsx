@@ -136,7 +136,7 @@ export default function RelatoriosPage() {
 
                             <div className="flex items-center gap-3 mt-5">
                                 <ClipboardCheck size={18} />
-                                <span>Presença média (%)</span>
+                                <span>Frequência média (%)</span>
                                 <span className="ml-auto font-semibold text-green-700">
                                     {turma.presenca_media?.toFixed(1) ?? 0}
                                 </span>
@@ -156,7 +156,7 @@ export default function RelatoriosPage() {
                                 <TriangleAlert size={18} />
                                 <span>
                                     {turma.alunos_baixa_frequencia}
-                                    {" "}aluno(s) com baixa frequência
+                                    {" "}indicador(es) de baixa frequência
                                 </span>
                             </div>
 
@@ -164,7 +164,7 @@ export default function RelatoriosPage() {
                                 <TriangleAlert size={18} />
                                 <span>
                                     {turma.alunos_abaixo_media}
-                                    {" "}aluno(s) abaixo da média
+                                    {" "}indicador(es) de nota abaixo da média
                                 </span>
                             </div>
 

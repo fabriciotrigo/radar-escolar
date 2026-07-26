@@ -39,7 +39,13 @@ export class ProfessorTurmaRepository {
                 t.ano,
                 t.sala,
                 d.nome AS disciplina,
-                COUNT(at.aluno_id) AS quantidade_alunos
+                COUNT(at.aluno_id) AS quantidade_alunos,
+                COUNT(DISTINCT a.id) FILTER (
+                    WHERE a.data < CURRENT_DATE
+                ) AS aulas_realizadas,
+                COUNT(DISTINCT a.id) FILTER (
+                    WHERE a.data >= CURRENT_DATE
+                ) AS aulas_agendadas
             FROM professor_turma pt
             INNER JOIN turmas t
                 ON t.id = pt.turma_id
@@ -47,6 +53,8 @@ export class ProfessorTurmaRepository {
                 ON d.id = pt.disciplina_id
             LEFT JOIN aluno_turma at
                 ON at.turma_id = t.id
+            LEFT JOIN aulas a
+                ON a.professor_turma_id = pt.id
             WHERE pt.professor_id = $1
               AND t.ano_letivo = $2
             GROUP BY

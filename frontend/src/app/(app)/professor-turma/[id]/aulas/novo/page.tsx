@@ -47,8 +47,8 @@ export default function NovaAulaPage() {
 
             toast.success("Aula criada com sucesso!");
 
-            //router.push(`/professor-turma/${professorTurmaId}/aulas`);
-            router.push(`/aulas/${response.data.id}/chamada`);
+            router.push(`/professor-turma/${professorTurmaId}/aulas`);
+            //router.push(`/aulas/${response.data.id}/chamada`);
         } catch {
             toast.error("Não foi possível criar a aula.");
         } finally {

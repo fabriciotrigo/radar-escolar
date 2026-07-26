@@ -8,6 +8,7 @@ import { useAuth } from "../../../../../../../contexts/AuthContext"
 
 import CardsResumoAluno from "./components/CardsResumoAluno";
 import HistoricoAluno from "./components/HistoricoAluno";
+import GraficosAluno from "./components/GraficosAluno"
 
 interface RelatorioAluno {
     aluno: {
@@ -133,6 +134,10 @@ export default function RelatorioAlunoPage() {
             )}
 
             <CardsResumoAluno resumo={relatorio.resumo} />
+            <GraficosAluno
+                resumo={relatorio.resumo}
+                historico={relatorio.historico}
+            />
             <HistoricoAluno historico={relatorio.historico} />
 
         </div>
