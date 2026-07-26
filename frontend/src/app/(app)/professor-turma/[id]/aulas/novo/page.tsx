@@ -134,13 +134,11 @@ export default function NovaAulaPage() {
                         className="
                             px-6
                             py-3
-                            rounded-lg
-                            border
-                            border-gray-300
-                            hover:bg-gray-100
+                            rounded-xl
+                            bg-slate-200
+                            hover:bg-slate-300
                             transition
-                            cursor-pointer
-                        "
+                            cursor-pointer"
                     >
                         Cancelar
                     </button>

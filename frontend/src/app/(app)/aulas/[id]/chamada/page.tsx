@@ -382,6 +382,7 @@ export default function ChamadaPage() {
                             bg-slate-200
                             hover:bg-slate-300
                             transition
+                            cursor-pointer
                         "
                     >
                         Cancelar
@@ -399,6 +400,7 @@ export default function ChamadaPage() {
                             disabled:bg-blue-300
                             text-white
                             transition
+                            cursor-pointer
                         "
                     >
                         {saving ? "Salvando..." : "Salvar Chamada"}

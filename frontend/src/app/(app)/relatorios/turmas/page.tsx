@@ -6,11 +6,12 @@ import { api } from "@/services/api";
 import { useAuth } from "../../../../contexts/AuthContext"
 import {
     Users,
-    BookOpen,
+    Star,
     Calendar,
     TriangleAlert,
-    ChevronRight,
-    Eye
+    Eye,
+    CalendarDays,
+    ClipboardCheck
 } from "lucide-react";
 
 interface RelatorioTurma {
@@ -127,22 +128,24 @@ export default function RelatoriosPage() {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <BookOpen size={18} />
+                                <CalendarDays size={18} />
                                 <span>
                                     {turma.total_aulas} aulas
                                 </span>
                             </div>
 
-                            <div className="flex items-center justify-between mt-5">
+                            <div className="flex items-center gap-3 mt-5">
+                                <ClipboardCheck size={18} />
                                 <span>Presença média (%)</span>
-                                <span className="font-semibold text-green-700">
+                                <span className="ml-auto font-semibold text-green-700">
                                     {turma.presenca_media?.toFixed(1) ?? 0}
                                 </span>
                             </div>
 
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <Star size={18} />
                                 <span>Nota média</span>
-                                <span className="font-semibold text-blue-700">
+                                <span className="ml-auto font-semibold text-blue-700">
                                     {turma.nota_media?.toFixed(1) ?? "-"}
                                 </span>
                             </div>
@@ -176,11 +179,12 @@ export default function RelatoriosPage() {
                             onClick={() =>
                                 router.push(`/relatorios/turmas/${turma.professor_turma_id}`)
                             }
-                            className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 flex items-center justify-center gap-2 font-medium transition"
+                            className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 
+                                    flex items-center justify-center gap-2 font-medium transition cursor-pointer"
                         >
                             <Eye size={16} />
                             Ver relatório
-                            <ChevronRight size={18} />
+                            {/*<ChevronRight size={18} />*/}
                         </button>
                     </div>
                 ))}

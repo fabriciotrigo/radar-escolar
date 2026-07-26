@@ -36,12 +36,12 @@ export default function TabelaAlunos({
     dados,
 }: TabelaAlunosProps) {
     return (
-        <div className="rounded-xl border bg-white p-6 shadow-sm">
+        <div className="rounded-xl border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="mb-6 text-lg font-semibold text-gray-900">
                 Alunos da Turma
             </h2>
 
-            <div className="overflow-x-auto">
+            <div className="rounded-2xl overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
