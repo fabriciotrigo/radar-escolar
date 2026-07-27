@@ -236,6 +236,31 @@ npm install
 
 ---
 
+## Configuração das Variáveis de Ambiente do Backend
+
+Crie e configure um arquivo .env na raíz do projeto da mesma forma como demonstrado em ./backend/.env.example:
+
+```bash
+PORT=  
+ENV=  
+DATABASE_USER=  
+DATABASE_HOST=  
+DATABASE_NAME=  
+DATABASE_PASSWORD=  
+DATABASE_PORT=  
+JWT_SECRET= 
+```
+
+## Configuração da Variável de Ambiente do Frontend
+
+Para execução com docker crie um arquivo .env.production na pasta ./frontend com o conteúdo abaixo:
+
+```bash
+NETX_PUBLIC_API_URL=http://api:8000
+```
+
+---
+
 ## Docker
 
 ```bash
