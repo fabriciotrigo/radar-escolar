@@ -39,7 +39,7 @@ export class ProfessorTurmaRepository {
                 t.ano,
                 t.sala,
                 d.nome AS disciplina,
-                COUNT(at.aluno_id) AS quantidade_alunos,
+                (select COUNT(1) from aluno_turma at2 where at2.turma_id = t.id) AS quantidade_alunos,
                 COUNT(DISTINCT a.id) FILTER (
                     WHERE a.data < CURRENT_DATE
                 ) AS aulas_realizadas,

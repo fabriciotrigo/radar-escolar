@@ -24,15 +24,15 @@ interface GraficoParticipacaoProps {
 export default function GraficoParticipacao({
     dados,
 }: GraficoParticipacaoProps) {
-    const dadosGrafico = dados.map((item) => ({
+    const dadosGrafico = dados
+        .filter((item) => item.participacao !== "NAO_INFORMADA")
+        .map((item) => ({
         participacao:
             item.participacao === "ALTA"
                 ? "Alta"
                 : item.participacao === "MEDIA"
                 ? "Média"
-                : item.participacao === "BAIXA"
-                ? "Baixa"
-                : "N/I",
+                : "Baixa",
 
         quantidade: item.quantidade,
     }));
